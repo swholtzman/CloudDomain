@@ -1,0 +1,233 @@
+{
+    "clients_cards": [
+        {
+            "Class": "Clients",
+            "Ranking": "Kernel",
+            "Title": "BrowserStorage",
+            "Functions": {
+                "localStorage": null,
+                "sessionStorage": null
+            },
+            "Card Type": null,
+            "Stats": {},
+            "Rarity": null,
+            "Description": {
+                "localStorage": {
+                    "persistance": "No expiration date. Persists indefinitely until deleted. Remains available after browser is closed and reopened.",
+                    "scope": "Partitioned by origin (protocol, host, port). All documents from the same origin have access.",
+                    "capacity": "Larger storage capacity (~5-10MB).",
+                    "use_case": "Storing data that needs to persist across multiple browsing sessions (User preferences, Offline Data)."
+                },
+                "sessionStorage": {
+                    "persistance": "Cleared as soon as the browser tab/window is closed. Does NOT persist across browser sessions.",
+                    "scope": "Partitioned by origin and browser tabs/windows. Each tab/window has a separate session storage.",
+                    "capacity": "Small storage capacity (~5MB).",
+                    "use_case": "Storing temporary data relevant to the current browsing session (Data for a multi-step process)."
+                }
+            },
+            "Primary Image": "Chrome"
+        },
+        {
+            "Class": "Clients",
+            "Ranking": "Root",
+            "Title": "AJAX",
+            "Functions": {},
+            "Card Type": null,
+            "Stats": {},
+            "Rarity": null,
+            "Description": {
+                "overview": "Asynchronous JavaScript And XML (commonly used with JSON instead of XML). Used in client-side JavaScript to send HTTP reqs to a server and receive responses without needing to reload the web page. AJAX calls allow web pages to communicate asynchronously with servers in the background."
+            },
+            "Primary Image": "Chrome"
+        },
+        {
+            "Class": "Clients",
+            "Ranking": "Daemon",
+            "Title": "XMLHttpRequest",
+            "Functions": {},
+            "Card Type": null,
+            "Stats": {},
+            "Rarity": null,
+            "Description": {
+                "overview": "`XMLHttpRequest` object is a built-in browser API used for AJAX requests.",
+                "use_case": "Sending HTTP requests (GET, POST, etc) from browsers JavaScript to a server endpoint. Receiving data (JSON or text) from server to update web page dynamically.",
+                "steps": {
+                    "create_object": "new XMLHttpRequest object\n`const xhttp = new XMLHttpRequest();`",
+                    "define_callback": "assign a function to the `onreadystatechange` property. `xhttp.onreadystatechange = function() {}`",
+                    "open_configure": "Specify HTTP method, server URL, and if request is asynchronous. `xhttp.open(\"GET\", \"http://example.com/api/data?id=123\", true);`",
+                    "send_request": "initiate the network request. `xhttp.send();`"
+                }
+            },
+            "Primary Image": "Chrome"
+        },
+        {
+            "Class": "Clients",
+            "Ranking": "Thread",
+            "Title": "DevTools",
+            "Functions": {},
+            "Card Type": null,
+            "Stats": {},
+            "Rarity": null,
+            "Description": {
+                "elements": "Full overview of HTML and CSS. Modify CSS styles live. Inspect and edit DOM nodes.",
+                "console": "JavaScript output (Errors, Logs, Warnings). Can be used to execute browser JavaScript.",
+                "sources": "All files loaded by the page. Set breakpoints and debug JavaScript.",
+                "network": "Speed Testing. Inspect HTTP requests and responses. Check headers, payloads, and response times.",
+                "performance": "Record runtime performance profiles. Identify rendering or scripting bottlenecks.",
+                "memory": "Detect memory leaks and monitor heap usage. Take heap snapshots.",
+                "application": "Manage Local Storage, cookies, sessionStorage, and IndexedDB. Inspect service workers.",
+                "security": "View SSL/TLS certificate details. Detect mixed content or security policy issues."
+            },
+            "Primary Image": "Chrome"
+        },
+        {
+            "Class": "Clients",
+            "Ranking": "10",
+            "Title": "Storage Scope (Origin)",
+            "Functions": {},
+            "Card Type": null,
+            "Stats": {},
+            "Rarity": null,
+            "Description": {
+                "origin": "Defined by: Protocol, Domain, Port. Example: 'https://example.com:443' !== 'http://example.com:80'",
+                "isolation": "Data stored in one origin cannot be accessed by another origin. Prevents cross-site data leakage.",
+                "localStorage": "Persistent Storage: indefinite storage. Persists after browser is closed. Shared across all tabs and windows of the same origin.",
+                "sessionStorage": "Temporary storage: data cleared when the tab or window is closed. Unique to each browser tab, even on the same origin.",
+                "security_note": "Web storage is accessible through JavaScript. Vulnerable to cross-site scripting (XSS) attacks. Passwords or tokens should not be stored in `localStorage` or `sessionStorage`."
+            },
+            "Primary Image": "Chrome"
+        },
+        {
+            "Class": "Clients",
+            "Ranking": "9",
+            "Title": "Storage API",
+            "Functions": {},
+            "Card Type": null,
+            "Stats": {},
+            "Rarity": null,
+            "Description": {
+                "overview": "Local storage and Session Storage both use these methods.",
+                "setItem": "Stores data under a specified key. `localStorage.setItem(\"user\", JSON.stringify(user));`",
+                "getItem": "Retrieves the value associated with a specific key. Returns value as a string, or `null` if !key.",
+                "removeItem": "Removes a single key-value pair from storage.",
+                "clear": "Removes all key-value pairs from the entire storage object for the current domain.",
+                "key": "Retrieve the name of a key based on a zero-based index."
+            },
+            "Primary Image": "Chrome"
+        },
+        {
+            "Class": "Clients",
+            "Ranking": "8",
+            "Title": ".stringify()",
+            "Functions": {
+                "to-string": "block your opponents executing card’s function (can still execute)"
+            },
+            "Card Type": "executor",
+            "Stats": {
+                "exception": 4,
+                "robustness": 2
+            },
+            "Rarity": "Variable",
+            "Description": {
+                "overview": "Converts a JavaScript object or value into a JSON String. Useful for storing objects in localStorage or sending data to a server.",
+                "example": "const user = {name: \"Alice\", age: 30 };\nconst jsonString = JSON.stringify(user);\n\n// output: '{ \"name\": \"Alice\", \"age\": \"30\" }'"
+            },
+            "Primary Image": "Chrome"
+        },
+        {
+            "Class": "Clients",
+            "Ranking": "7",
+            "Title": ".parse()",
+            "Functions": {},
+            "Card Type": null,
+            "Stats": {},
+            "Rarity": null,
+            "Description": {
+                "overview": "Converts a JSON string back into a JavaScript object.",
+                "example": "const jsonString = JSON.stringify(user);\nconst user = JSON.parse(jsonString);\n\n// Output: { name: \"Alice\", age: 25 }"
+            },
+            "Primary Image": "Chrome"
+        },
+        {
+            "Class": "Clients",
+            "Ranking": "6",
+            "Title": "Modifying HTML",
+            "Functions": {},
+            "Card Type": null,
+            "Stats": {},
+            "Rarity": null,
+            "Description": {
+                "innerHTML": "Gets or sets HTML markup in an element. Use when inserting or replacing HTML content. `document.getElementById(\"demo\").innerHTML = \"<b>Hello World!</b>\"`",
+                "textContent": "Gets or sets the text content of an element; ignores any HTML tags. Use for inserting plain text. `document.getElementById(\"demo\").textContent = \"<b>Hello World!</b>\";` // Would literally display '<b>Hello World!</b>'",
+                "innerText": "Similar to `textContent` but respects CSS styling and hidden elements (e.g., ignores text inside `display: none`).",
+                "methods": "<p id=\"demo\"> Result will appear here </p>\n<script>\n\tdocument.getElementById(\"demo\").innerHTML = 5+6;\n</script>"
+            },
+            "Primary Image": "Chrome"
+        },
+        {
+            "Class": "Clients",
+            "Ranking": "5",
+            "Title": "Event Handlers",
+            "Functions": {},
+            "Card Type": null,
+            "Stats": {},
+            "Rarity": null,
+            "Description": {
+                "overview": "Functions that execute in response to specific events (clicks, key presses, page loads).",
+                "common_event_types": ".onclick(), .onmouseover(), .onkeydown(), .onload()",
+                "ways_to_add": "Inline HTML: `<button onclick=\"alert('Clicked!')\">`\nJavaScript Property: `document.getElementById(\"btn\").onclick = function() {}`\naddEventListener (preferred): `document.getElementById(\"btn\").addEventListener(\"click\", () => {})`",
+                "advantages_of_addEventListener": "Can attach multiple handlers to the same event. Supports event removal with `removeEventListener()`. Keeps HTML and JavaScript separate."
+            },
+            "Primary Image": "Chrome"
+        },
+        {
+            "Class": "Clients",
+            "Ranking": "4",
+            "Title": "XHR Callback",
+            "Functions": {},
+            "Card Type": null,
+            "Stats": {},
+            "Rarity": null,
+            "Description": {
+                "overview": "Function assigned to `onreadystatechange` is crucial for handling server response. Called whenever `readyState` property of the XHR object changes.",
+                "key_features": {
+                    "readyState": "Indicates the current state of the request (0: UNSENT, 1: OPENED, 2: HEADER_RECEIVED, 3: LOADING, 4: DONE).",
+                    "status": "Standard HTTP status code (e.g., 200, 404). Only relevant when `readyState` is 4.",
+                    "responseText": "Contains response body from server."
+                },
+                "check": "You must check `if (this.readyState == 4 && this.status == 200)`."
+            },
+            "Primary Image": "Chrome"
+        },
+        {
+            "Class": "Clients",
+            "Ranking": "3",
+            "Title": "Storage Data Types",
+            "Functions": {},
+            "Card Type": null,
+            "Stats": {},
+            "Rarity": null,
+            "Description": {
+                "strings": "All values stored in `localStorage` and `sessionStorage` are strings by default. Numbers and booleans are also converted to strings.",
+                "objects": "Objects and arrays must be converted prior to storage. Use `JSON.stringify()` to store and `JSON.parse()` to retrieve.",
+                "supported_data": "Primitive Types (Strings, Numbers, Booleans), Complex Types via JSON (arrays, objects).",
+                "unsupported_types": "functions, symbols, undefined types."
+            },
+            "Primary Image": "Chrome"
+        },
+        {
+            "Class": "Clients",
+            "Ranking": "2",
+            "Title": "JSON Format",
+            "Functions": {},
+            "Card Type": null,
+            "Stats": {},
+            "Rarity": null,
+            "Description": {
+                "overview": "Double quotes for keys and string values. No trailing commas. Allowed data types: string, number, object, array, boolean, null.",
+                "example": "{\n\t\"id\": 1,\n\t\"name\": \"Alice\",\n\t\"active\": true\n}"
+            },
+            "Primary Image": "Chrome"
+        }
+    ]
+}

@@ -1,0 +1,278 @@
+{
+    "concepts_cards": [
+        {
+            "Class": "Concepts",
+            "Ranking": "Kernel",
+            "Title": "Event Loop",
+            "Functions": {
+                "import": "select the loop cycle of this card",
+                "sync": null,
+                "macro": null,
+                "micro": null
+            },
+            "Card Type": "Environment",
+            "Stats": {},
+            "Rarity": null,
+            "Description": {
+                "overview": "A mechanism handling asynchronous operations. Prioritizes and executes Promise callbacks using the Microtask Queue. Promises have a higher priority than other asynchronous tasks (e.g., `setTimeout()`).",
+                "sync": "Runs synchronous code immediately in order. Blocks further execution until complete.",
+                "micro": "Include promise callbacks (`.then()`, `.catch()`, `.finally()`). Run after the current synchronous code but before macrotasks.",
+                "macro": "Include `setTimeout()`, `setInterval()`, and I/O operations. Run after microtasks complete.",
+                "handlers": {
+                    "call_stack": "Executes synchronous code. When a function is called, it is pushed onto the stack. When it returns, it is popped off.",
+                    "web_apis": "Browser provides APIs to handle asynchronous tasks (e.g., `setTimeout()`, `fetch()`, and event listeners).",
+                    "microtask_queue": "High priority queue for callbacks from Promises (e.g., `.then()`, `.catch()`, `.finally()`, `await`, `queueMicrotask()`).",
+                    "callback_queue": "Lower-priority queue for callbacks from `setTimeout()`, `setInterval()`, and other events (e.g., user interactions)."
+                },
+                "example": "console.log(\"Start\");\n\nsetTimeout(() => {\n\tconsole.log(\"Timeout\");\n}, 0);\n\nPromise.resolve().then(() => {\n\tconsole.log(\"promise Resolved\");\n});\n\nconsole.log(\"End\");\n\n/*\nStart\nEnd\nPromise Resolved\nTimeout\n*/"
+            },
+            "Primary Image": "Atom"
+        },
+        {
+            "Class": "Concepts",
+            "Ranking": "Root",
+            "Title": "async/await",
+            "Functions": {},
+            "Card Type": null,
+            "Stats": {},
+            "Rarity": null,
+            "Description": {
+                "overview": "Syntactic sugar on top of promises in JavaScript. Make async code look and behave closer to sync code.",
+                "async": "Declaring with `async` makes it return a Promise. If the function returns a value, it is wrapped in `Promise.resolve(value)`. If the function throws an error, it becomes a rejected Promise.\n\nExample:\nasync function greet() {\n\treturn 'Hello';\n}\ngreet().then(console.log); // logs \"Hello\"",
+                "await": "Pauses execution of an `async` function until the promise it is waiting for is settled. Returns the resolved value of the promise. If rejected, throws an error that can be caught in a try-catch block.\n\nExample:\nasync function fetchData() { \n\ttry { \n\t\tconst data = await getData(); // waits for getData() to resolve\n\t\tconsole.log(data); \n\t} catch (err) { \n\t\tconsole.error(err); \n\t} \n}"
+            },
+            "Primary Image": "Atom"
+        },
+        {
+            "Class": "Concepts",
+            "Ranking": "Daemon",
+            "Title": "Hoisting",
+            "Functions": {},
+            "Card Type": null,
+            "Stats": {},
+            "Rarity": null,
+            "Description": {
+                "overview": "All declarations are hoisted to the top of their scope. `var` initialized as `undefined`. `const`, `let` not accessible until declared (Return a `ReferenceError` if accessed before declaration).",
+                "block_scope": "Variables existing only within `{}`. Common in loops, conditionals, functions.",
+                "function_scope": "Not limited by `{}` blocks inside a function. Variables declared with `var` are visible throughout a function.",
+                "temporal_dead_zone": "Period between when a variable is hoisted and when it is initialized. Variable exists in memory but cannot be accessed. Accessing before declaration causes a `ReferenceError`.\n\nconsole.log(a); // ReferenceError \nlet a = 5;"
+            },
+            "Primary Image": "Atom"
+        },
+        {
+            "Class": "Concepts",
+            "Ranking": "Thread",
+            "Title": "Scope",
+            "Functions": {},
+            "Card Type": null,
+            "Stats": {},
+            "Rarity": null,
+            "Description": {
+                "overview": "Determines where variables are accessible. Types: Global, Function, Block.",
+                "global": "Declared outside any function or block. Accessible anywhere in the program. Added to the `window` object in browsers.",
+                "function": "Declared inside a function using `var`. Accessible only within that function.",
+                "block": "Declared within `{}` using `const` or `let`. Accessible only within that block, including loops and conditionals."
+            },
+            "Primary Image": "Atom"
+        },
+        {
+            "Class": "Concepts",
+            "Ranking": "10",
+            "Title": "Promise States",
+            "Functions": {},
+            "Card Type": null,
+            "Stats": {},
+            "Rarity": null,
+            "Description": {
+                "overview": "Object representing the eventual completion or failure of an async operation. May exist in one of three mutually exclusive states: pending, fulfilled, rejected. Once a promise transitions from pending, its state is final (settled).",
+                "pending": "Initial, unsettled state. Promise Result: `undefined`.",
+                "resolved_fulfilled": "State when the async operation completed successfully. Promise Result: `resolve(value)` is called, value accessible via `.then()`.",
+                "rejected_failed": "State when the async operation fails. Promise Result: `reject(error)` is called, error accessible via `.catch()`."
+            },
+            "Primary Image": "Atom"
+        },
+        {
+            "Class": "Concepts",
+            "Ranking": "9",
+            "Title": "Executor Function",
+            "Functions": {},
+            "Card Type": null,
+            "Stats": {},
+            "Rarity": null,
+            "Description": {
+                "overview": "The function passed as an argument to the `Promise` constructor. Runs immediately and synchronously when the promise is created. Receives two arguments: `resolve()` and `reject()`.",
+                "example": "const promise = new Promise((resolve, reject) => {\n\tif (Math.random() > 0.5) resolve(\"Success\");\n\telse reject(\"Error\");\n});"
+            },
+            "Primary Image": "Atom"
+        },
+        {
+            "Class": "Concepts",
+            "Ranking": "8",
+            "Title": ".then()",
+            "Functions": {},
+            "Card Type": null,
+            "Stats": {},
+            "Rarity": null,
+            "Description": {
+                "overview": "Used to handle the resolved value of a promise.",
+                "rationale": ".then() returns a new promise, allowing for chaining. The internal properties of a promise cannot be accessed directly; .then() allows us to utilize the promise outcome."
+            },
+            "Primary Image": "Atom"
+        },
+        {
+            "Class": "Concepts",
+            "Ranking": "7",
+            "Title": "Settling Once",
+            "Functions": {},
+            "Card Type": null,
+            "Stats": {},
+            "Rarity": null,
+            "Description": {
+                "overview": "A promise may only be \"settled\" once. Once a promise has been fulfilled/resolved, or rejected, that is the final state of the promise, and it cannot be changed."
+            },
+            "Primary Image": "Atom"
+        },
+        {
+            "Class": "Concepts",
+            "Ranking": "6",
+            "Title": "var",
+            "Functions": {},
+            "Card Type": null,
+            "Stats": {},
+            "Rarity": null,
+            "Description": {
+                "overview": "Declare variables. Differ in scope, hoisting, and mutability.",
+                "var": "Function-scoped, not block scoped. Hoisted and initialized as 'undefined'. Can be redeclared and reassigned.",
+                "let": "Block-Scoped. Hoisted but not initialized (temporal dead zone). Can be reassigned but not redeclared in the same scope.",
+                "const": "Block-Scoped. Must be initialized at declaration. Cannot be reassigned (Object properties can change).",
+                "avoiding_var": "Function-Scoped variables can cause unintended variable access outside blocks. Hoisted and Initialized as `undefined`, overwriting variables accidentally. Does not respect temporal dead zone, making debugging difficult."
+            },
+            "Primary Image": "Atom"
+        },
+        {
+            "Class": "Concepts",
+            "Ranking": "6",
+            "Title": "let",
+            "Functions": {},
+            "Card Type": null,
+            "Stats": {},
+            "Rarity": null,
+            "Description": {
+                "overview": "Declare variables. Differ in scope, hoisting, and mutability.",
+                "var": "Function-scoped, not block scoped. Hoisted and initialized as 'undefined'. Can be redeclared and reassigned.",
+                "let": "Block-Scoped. Hoisted but not initialized (temporal dead zone). Can be reassigned but not redeclared in the same scope.",
+                "const": "Block-Scoped. Must be initialized at declaration. Cannot be reassigned (Object properties can change).",
+                "avoiding_var": "Function-Scoped variables can cause unintended variable access outside blocks. Hoisted and Initialized as `undefined`, overwriting variables accidentally. Does not respect temporal dead zone, making debugging difficult."
+            },
+            "Primary Image": "Atom"
+        },
+        {
+            "Class": "Concepts",
+            "Ranking": "6",
+            "Title": "const",
+            "Functions": {},
+            "Card Type": null,
+            "Stats": {},
+            "Rarity": null,
+            "Description": {
+                "overview": "Declare variables. Differ in scope, hoisting, and mutability.",
+                "var": "Function-scoped, not block scoped. Hoisted and initialized as 'undefined'. Can be redeclared and reassigned.",
+                "let": "Block-Scoped. Hoisted but not initialized (temporal dead zone). Can be reassigned but not redeclared in the same scope.",
+                "const": "Block-Scoped. Must be initialized at declaration. Cannot be reassigned (Object properties can change).",
+                "avoiding_var": "Function-Scoped variables can cause unintended variable access outside blocks. Hoisted and Initialized as `undefined`, overwriting variables accidentally. Does not respect temporal dead zone, making debugging difficult."
+            },
+            "Primary Image": "Atom"
+        },
+        {
+            "Class": "Concepts",
+            "Ranking": "5",
+            "Title": "Function Returns",
+            "Functions": {},
+            "Card Type": null,
+            "Stats": {},
+            "Rarity": null,
+            "Description": {
+                "overview": "`return` statement ends a function's execution and specifies the value to be sent back to the caller.",
+                "key_points": "If no `return` is specified, function returns `undefined`. Can return any data type. Once `return` executes, no further code in the function runs.",
+                "example": "function add(a, b) {\n\treturn a + b; // returns the sum\n}\n\nconst result = add(5, 3); // result = 8"
+            },
+            "Primary Image": "Atom"
+        },
+        {
+            "Class": "Concepts",
+            "Ranking": "4",
+            "Title": "Composition and Inheritance",
+            "Functions": {},
+            "Card Type": null,
+            "Stats": {},
+            "Rarity": null,
+            "Description": {
+                "composition": "Car has an Engine. Allows more flexibility. May swap out Engine for other type without changing Car.",
+                "inheritance": "Car is a Vehicle. Inherits properties and methods."
+            },
+            "Primary Image": "Atom"
+        },
+        {
+            "Class": "Concepts",
+            "Ranking": "3",
+            "Title": "JavaScript Arrays",
+            "Functions": {},
+            "Card Type": null,
+            "Stats": {},
+            "Rarity": null,
+            "Description": {
+                "overview": "May hold multiple data types. Accessed using indices (`arrExample[0]`).\n\nconst arrExample = [\"This\", \"Is\", 1, \"array\", \"Example\", true]"
+            },
+            "Primary Image": "Atom"
+        },
+        {
+            "Class": "Concepts",
+            "Ranking": "2",
+            "Title": "Operators",
+            "Functions": {},
+            "Card Type": null,
+            "Stats": {},
+            "Rarity": null,
+            "Description": {
+                "operators": [
+                    {
+                        "operator": "==",
+                        "condition": "x == y",
+                        "meaning": "x is equal to y"
+                    },
+                    {
+                        "operator": "===",
+                        "condition": "x === y",
+                        "meaning": "x is equal to y and both objects are the same type"
+                    },
+                    {
+                        "operator": "!=",
+                        "condition": "x != y",
+                        "meaning": "x is not equal to y"
+                    },
+                    {
+                        "operator": ">",
+                        "condition": "x > y",
+                        "meaning": "x is greater than y"
+                    },
+                    {
+                        "operator": "<",
+                        "condition": "x < y",
+                        "meaning": "x is less than y"
+                    },
+                    {
+                        "operator": ">=",
+                        "condition": "x >= y",
+                        "meaning": "x is greater than or equal to y"
+                    },
+                    {
+                        "operator": "<=",
+                        "condition": "x <= y",
+                        "meaning": "x is less than or equal to y"
+                    }
+                ]
+            },
+            "Primary Image": "Atom"
+        }
+    ]
+}

@@ -1,0 +1,212 @@
+{
+  "servers_cards": [
+    {
+      "Class": "Servers",
+      "Ranking": "Kernel",
+      "Title": "Node.js",
+      "Functions": {
+        "import": "Draw 3 cards",
+        "node-run": "Server class cards have their interrupt rate increased by two (2) while Node.js is in your environment"
+      },
+      "Card Type": "environment",
+      "Stats": {},
+      "Rarity": "Prime",
+      "Description": {
+        "overview": {
+          "definition": "An open-source, cross-platform, back-end JavaScript runtime environment. Allows JavaScript code to be run on server-side, outside a web browser.",
+          "engine": "Runs on the Chrome V8 JavaScript engine.",
+          "architecture": "Single-threaded, non-blocking, asynchronous. Memory efficient & suitable for numerous concurrent connections without waiting."
+        },
+        "use_case": "Server-side scripting (back end development). Can create web servers, interact with the file system, manage databases, build APIs.",
+        "key_features": {
+          "async_non_blocking_io": "Instead of waiting for operations to complete, continue executing other code. Handles results via callbacks or Promises.",
+          "single_threaded_event_loop": "Manages asynchronous operations efficiently without overhead of multiple threads.",
+          "modules": "Uses a module system to organize code and include libraries."
+        }
+      },
+      "Primary Image": "Gear"
+    },
+    {
+      "Class": "Servers",
+      "Ranking": "Root",
+      "Title": "http Module",
+      "Functions": {},
+      "Card Type": null,
+      "Stats": {},
+      "Rarity": null,
+      "Description": {
+        "overview": "Built-in module for creating HTTP servers and clients. Allows Node.js applications to act as a web server, listens for incoming requests, and sends back responses.",
+        "use_case": "Building web servers and APIs. Handling `GET`, `POST`, `PUT`, `DELETE`, etc requests. Serving static files or dynamic content.",
+        "key_features_syntax": "`http.createServer(callback)`: Creates an HTTP server object. Callback receives `req` and `res`. \n`server.listen(port, [hostname], [callback])`: Starts the server.",
+        "example": "const http = require('http');\n\nconst server = http.createServer((req, res) => {\n\tres.writeHead(200, { 'Content-Type': 'text/plain' });\n\tres.end('Hello World\\n');\n});\n\nconst PORT = 8888;\nserver.listen(PORT, () => {\n\tconsole.log(`Server running on port ${PORT}`);\n});"
+      },
+      "Primary Image": "Gear"
+    },
+    {
+      "Class": "Servers",
+      "Ranking": "Daemon",
+      "Title": "MySQL",
+      "Functions": {},
+      "Card Type": null,
+      "Stats": {},
+      "Rarity": null,
+      "Description": {
+        "overview": "This is a **server-side** task.",
+        "security": "You must **NEVER** put database credentials (`host`, `user`, `password`) in client-side JS, as anyone can see them."
+      },
+      "Primary Image": "Gear"
+    },
+    {
+      "Class": "Servers",
+      "Ranking": "Thread",
+      "Title": "Request & Response",
+      "Functions": {},
+      "Card Type": null,
+      "Stats": {},
+      "Rarity": null,
+      "Description": {
+        "overview": "Objects automatically passed to the callback function provided to `http.createServer()`.",
+        "req": "Incoming message: Represents client's request. Includes `req.url`, `req.method`, `req.headers`, and event listeners `req.on('data', ...)` and `req.on('end', ...)`.",
+        "res": "Server Response: represents the response the server will send back. Includes `res.writeHead()`, `res.write()`, and `res.end()`. `res.end()` MUST be called.",
+        "use_case": "Essential for inspecting incoming requests (URL, method, headers, body) and crafting the appropriate response (status code, headers, body content)."
+      },
+      "Primary Image": "Gear"
+    },
+    {
+      "Class": "Servers",
+      "Ranking": "10",
+      "Title": "fs Module (File System)",
+      "Functions": {},
+      "Card Type": null,
+      "Stats": {},
+      "Rarity": null,
+      "Description": {
+        "overview": "Built in File System module. Provides functions for interacting with the file system on the server.",
+        "use_case": "Reading file contents (serving HTML). Writing data to files (logging). Deleting files. Checking if files exist.",
+        "key_features_syntax": "`fs.readFile(path, callback)`: reads entire content of a file asynchronously. `fs.writeFile(path, data, callback)`: writes entire content of a file asynchronously. `fs.unlink(path, callback)`: deletes file asynchronously.",
+        "example": "const http = require('http');\nconst fs = require('fs');\n\nhttp.createServer((req, res) => {\n\tconst filename = \".\" + req.url;\n\tfs.readFile(filename, (err, data) => {\n\t\tif (err) {\n\t\t\tres.writeHead(404, { 'Content-Type': 'text/html' });\n\t\t\treturn res.end(\"404 not found\");\n\t\t}\n\t\tres.writeHead(200, { 'Content-Type': 'text/html' });\n\t\tres.write(data);\n\t\treturn res.end();\n\t});\n}).listen(8888);"
+      },
+      "Primary Image": "Gear"
+    },
+    {
+      "Class": "Servers",
+      "Ranking": "9",
+      "Title": "url Module",
+      "Functions": {},
+      "Card Type": null,
+      "Stats": {},
+      "Rarity": null,
+      "Description": {
+        "overview": "Node.js's built-in module for parsing URL strings.",
+        "use_case": "Extracting different parts of a URL, especially path and query parameters from `req.url` in an HTTP server.",
+        "key_features_syntax": "`url.parse(urlString, [parseQueryString], [slashesDenoteHost])`. `parseQueryString` (Boolean): if `true`, the `query` property will be an *object*. Always set to `true` when working with `req.url`.",
+        "returned_object_properties": "`pathname`: path section before query string. `query`: an object of key-value pairs. `host`: hostname and port. `search`: full query string with `?`.",
+        "example": "const url = require('url');\nconst parsedUrl = url.parse(req.url, true);\nconst pathname = parsedUrl.pathname;\nconst queryParams = parsedUrl.query;\n\n// Request: http://localhost:8888/products?category=books&page=2\n// pathname: /products\n// queryParams: {\"category\": \"books\", \"page\": \"2\"}"
+      },
+      "Primary Image": "Gear"
+    },
+    {
+      "Class": "Servers",
+      "Ranking": "8",
+      "Title": "require() vs exports",
+      "Functions": {},
+      "Card Type": null,
+      "Stats": {},
+      "Rarity": null,
+      "Description": {
+        "overview": "Part of the CommonJS module system. `require(modulePath)`: built-in function to import a module. `exports`: object within a module; anything assigned to `exports` becomes available.",
+        "example_export": "// myModule.js\nexports.myFunction = function() {\n\treturn \"Hello\";\n}",
+        "example_import": "// index.js\nconst myMod = require('./myModule');\nconsole.log(myMod.myFunction());"
+      },
+      "Primary Image": "Gear"
+    },
+    {
+      "Class": "Servers",
+      "Ranking": "7",
+      "Title": "CORS (Cross-Origin Resource Sharing)",
+      "Functions": {},
+      "Card Type": null,
+      "Stats": {},
+      "Rarity": null,
+      "Description": {
+        "overview": "Cross-Origin Resource Sharing. A browser security feature that **blocks** client-side requests (like AJAX) to a different _origin_ (domain) than the one that served the HTML page."
+      },
+      "Primary Image": "Gear"
+    },
+    {
+      "Class": "Servers",
+      "Ranking": "6",
+      "Title": "CORS Fix",
+      "Functions": {},
+      "Card Type": null,
+      "Stats": {},
+      "Rarity": null,
+      "Description": {
+        "overview": "The **server** (your Node.js app) must explicitly _allow_ the request by sending the header: `Access-Control-Allow-Origin: \"*\"` (or a-specific-domain.com)."
+      },
+      "Primary Image": "Gear"
+    },
+    {
+      "Class": "Servers",
+      "Ranking": "5",
+      "Title": "mysql Module",
+      "Functions": {},
+      "Card Type": null,
+      "Stats": {},
+      "Rarity": null,
+      "Description": {
+        "overview": "A 3rd-party module (npm install mysql).",
+        "syntax": "1. const db = mysql.createConnection(...)\n2. db.connect(...)\n3. db.query(sql, (err, result) => { ... })"
+      },
+      "Primary Image": "Gear"
+    },
+    {
+      "Class": "Servers",
+      "Ranking": "4",
+      "Title": "res.writeHead()",
+      "Functions": {},
+      "Card Type": null,
+      "Stats": {},
+      "Rarity": null,
+      "Description": {
+        "overview": "Method of the `res` object used to send HTTP status code and response headers back to the client.",
+        "syntax": "`res.writeHead(statusCode, [statusMessage], [headers]);`\n`statusCode`: 3-digit HTTP status code (200, 404). \n`headers`: Object containing header key-value pairs (e.g., `{ 'Content-Type': 'application/json' }`).",
+        "use_case": "Setting success/error status. Specifying content type (`text/html`, `application/json`). Configuring CORS headers.",
+        "gotchas": "Should be called once per response, before `res.write()` or `res.end()`."
+      },
+      "Primary Image": "Gear"
+    },
+    {
+      "Class": "Servers",
+      "Ranking": "3",
+      "Title": "Built-in vs. 3rd-Party Modules",
+      "Functions": {},
+      "Card Type": null,
+      "Stats": {},
+      "Rarity": null,
+      "Description": {
+        "built_in": "Included in Node.js; no separate installation. Imported with module name: `require('http')`, `require('fs')`. Cover essential tasks.",
+        "third_party": "Must be installed using `npm install <module-name>`. Creates a `node_modules` folder. Imported using the module name: `require('mysql')`. Provides numerous functionalities (database connectors, web frameworks)."
+      },
+      "Primary Image": "Gear"
+    },
+    {
+      "Class": "Servers",
+      "Ranking": "2",
+      "Title": "Module Paths",
+      "Functions": {},
+      "Card Type": null,
+      "Stats": {},
+      "Rarity": null,
+      "Description": {
+        "overview": "String passed to `require()` for module location.",
+        "syntax": {
+          "core_modules": "const http = require('http');",
+          "third_party_modules": "const mysql = require('mysql');",
+          "local_files": "const utils = require('./utils');"
+        }
+      },
+      "Primary Image": "Gear"
+    }
+  ]
+}

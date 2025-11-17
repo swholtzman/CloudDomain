@@ -1,0 +1,252 @@
+{
+    "architectures_cards": [
+        {
+            "Class": "Architectures",
+            "Ranking": "Kernel",
+            "Title": "REST Principles",
+            "Functions": {},
+            "Card Type": null,
+            "Stats": {},
+            "Rarity": null,
+            "Description": {
+                "overview": "REST is an architectural style, not a protocol. Key constraints include:",
+                "principles": {
+                    "client_server": "Separation of concerns.",
+                    "stateless": "Every request from the client must contain all info needed. The server does not store session state.",
+                    "cacheable": "Responses can be cached."
+                }
+            },
+            "Primary Image": "Bank"
+        },
+        {
+            "Class": "Architectures",
+            "Ranking": "Root",
+            "Title": "Microservices (MSA)",
+            "Functions": {
+                "import": "Draw a card",
+                "loose-coupling": "Cards cannot be blocked while MicroServices is in play"
+            },
+            "Card Type": "environment",
+            "Stats": {},
+            "Rarity": "Nexus",
+            "Description": {
+                "overview": {
+                    "definition": "A software architecture style where a large application is broken down into a collection of small, independent, and loosely coupled services that communicate with each other, often via APIs."
+                },
+                "pros": "Scalable, flexible, teams can work independently.",
+                "cons": "Operationally complex, many API calls."
+            },
+            "Primary Image": "Bank"
+        },
+        {
+            "Class": "Architectures",
+            "Ranking": "Daemon",
+            "Title": "Monolithic",
+            "Functions": {
+                "update-service": "block your opponent’s active card"
+            },
+            "Card Type": "executor",
+            "Stats": {
+                "exception": 2,
+                "robustness": 8
+            },
+            "Rarity": "Vector",
+            "Description": {
+                "overview": {
+                    "definition": "A software development model where all components (UI, business logic, data access) are built and deployed as a single, unified unit with a single codebase."
+                },
+                "pros": "Simple to deploy initially.",
+                "cons": "Difficult to scale, maintain, and update."
+            },
+            "Primary Image": "Bank"
+        },
+        {
+            "Class": "Architectures",
+            "Ranking": "Thread",
+            "Title": "HTTP Methods",
+            "Functions": {},
+            "Card Type": null,
+            "Stats": {},
+            "Rarity": null,
+            "Description": {
+                "overview": "Indicate the intended action to be performed on a resource identified by a URL.",
+                "primary_methods": {
+                    "GET": "Retrieve data from the server. Fetching resources without causing side effects.",
+                    "POST": "Create a new resource on the server. Submitting data (new user registration).",
+                    "PUT": "Update or replace an existing resource completely. If it does not exist, create it.",
+                    "DELETE": "Remove an existing resource from the server."
+                },
+                "less_often_used": {
+                    "PATCH": "partially update a resource",
+                    "HEAD": "get headers only",
+                    "OPTIONS": "check allowed methods"
+                }
+            },
+            "Primary Image": "Bank"
+        },
+        {
+            "Class": "Architectures",
+            "Ranking": "10",
+            "Title": "Model-View-Controller (MVC)",
+            "Functions": {},
+            "Card Type": null,
+            "Stats": {},
+            "Rarity": null,
+            "Description": {
+                "overview": "A software architectural pattern used for developing user interfaces, particularly in web applications. It divides the related program logic into three interconnected components.",
+                "model": "Represents application's data, business logic, and rules. Manages data, handles storage and retrieval (e.g., interacting with a database). Independent of user interface.",
+                "view": "Responsible for presentation layer, displaying data from the Model to user. Defines how user interface looks and how information is rendered.",
+                "controller": "Acts as an intermediary between the Model and the View. It receives user input (e.g., HTTP requests), processes them, then interacts with Model. After Model processes data, the Controller selects the appropriate View."
+            },
+            "Primary Image": "Bank"
+        },
+        {
+            "Class": "Architectures",
+            "Ranking": "9",
+            "Title": "Layered (n-Tier)",
+            "Functions": {},
+            "Card Type": null,
+            "Stats": {},
+            "Rarity": null,
+            "Description": {
+                "overview": "Enforces separation of concerns by grouping code into layers. A request must pass through layers in order.",
+                "layers": {
+                    "1_presentation_layer": "UI",
+                    "2_business_layer": "Logic",
+                    "3_data_access_layer": "Database"
+                }
+            },
+            "Primary Image": "Bank"
+        },
+        {
+            "Class": "Architectures",
+            "Ranking": "8",
+            "Title": "GET vs. POST",
+            "Functions": {},
+            "Card Type": null,
+            "Stats": {},
+            "Rarity": null,
+            "Description": {
+                "overview": "Main difference in how they send data to the server.",
+                "key_differences": {
+                    "data_location": "GET: Appends data to the URL as a query string. POST: Includes data within the request body.",
+                    "visibility": "GET: data visible in the url, browser history, server logs. POST: not directly visible in the url.",
+                    "purpose": "GET: primarily for requesting data. POST: primarily for sending data to create or update resources."
+                }
+            },
+            "Primary Image": "Bank"
+        },
+        {
+            "Class": "Architectures",
+            "Ranking": "7",
+            "Title": "Web Server",
+            "Functions": {},
+            "Card Type": null,
+            "Stats": {},
+            "Rarity": null,
+            "Description": {
+                "overview": "A traditional web server receives requests and responds with UI elements (HTML pages, CSS sheets, client-side JS). An API server (or Web API) receives requests and responds with data (JSON).",
+                "use_case": {
+                    "web_server": "Front-end interface (for users).",
+                    "api_server": "Provides data and functionality to client applications."
+                }
+            },
+            "Primary Image": "Bank"
+        },
+        {
+            "Class": "Architectures",
+            "Ranking": "7",
+            "Title": "API Server",
+            "Functions": {},
+            "Card Type": null,
+            "Stats": {},
+            "Rarity": null,
+            "Description": {
+                "overview": "A traditional web server receives requests and responds with UI elements (HTML pages, CSS sheets, client-side JS). An API server (or Web API) receives requests and responds with data (JSON).",
+                "use_case": {
+                    "web_server": "Front-end interface (for users).",
+                    "api_server": "Provides data and functionality to client applications."
+                }
+            },
+            "Primary Image": "Bank"
+        },
+        {
+            "Class": "Architectures",
+            "Ranking": "6",
+            "Title": "Postman",
+            "Functions": {},
+            "Card Type": null,
+            "Stats": {},
+            "Rarity": null,
+            "Description": {
+                "overview": "A desktop application used to test API endpoints (GET, POST, etc.) without needing to build a front-end client."
+            },
+            "Primary Image": "Bank"
+        },
+        {
+            "Class": "Architectures",
+            "Ranking": "5",
+            "Title": "Promise.race()",
+            "Functions": {},
+            "Card Type": null,
+            "Stats": {},
+            "Rarity": null,
+            "Description": {
+                "overview": "Static method taking an array of promises. The new promise settles (fulfills or rejects) as soon as the very first promise in the array settles.",
+                "key_behaviours": "If the first promise to settle, fulfills: The `Promise.race` promise immediately fulfills. If the first promise to settle, rejects: The `Promise.race` promise immediately rejects.",
+                "primary_use_case": "Timeouts. Race the actual operation (e.g., network request) against a timeout promise.",
+                "edge_cases": "Any non-promise values passed into the array (e.g., 123) will be treated as a fulfilled promise and will almost always win the race."
+            },
+            "Primary Image": "Bank"
+        },
+        {
+            "Class": "Architectures",
+            "Ranking": "4",
+            "Title": "Promise.any()",
+            "Functions": {},
+            "Card Type": null,
+            "Stats": {},
+            "Rarity": null,
+            "Description": {
+                "overview": "Cares about the first promise to fulfill. Ignores any rejections unless all promises in the array are rejected."
+            },
+            "Primary Image": "Bank"
+        },
+        {
+            "Class": "Architectures",
+            "Ranking": "3",
+            "Title": "GET Gotchas",
+            "Functions": {},
+            "Card Type": null,
+            "Stats": {},
+            "Rarity": null,
+            "Description": {
+                "visibility_security": "Data in the URL; GET unsuitable for sensitive information (passwords).",
+                "idempotency": "GET requests should be idempotent (same request multiple times yields same result).",
+                "caching": "Responses can be cached by a browser.",
+                "bookmarking_history": "Entire request in URL; can be bookmarked.",
+                "length_restrictions": "Length limits (~2000 chars). Restricted amount of data can be sent.",
+                "data_types": "Limited to ASCII characters due to URL encoding constraints."
+            },
+            "Primary Image": "Bank"
+        },
+        {
+            "Class": "Architectures",
+            "Ranking": "2",
+            "Title": "POST Gotchas",
+            "Functions": {},
+            "Card Type": null,
+            "Stats": {},
+            "Rarity": null,
+            "Description": {
+                "data_location_security": "Data sent in request body; not directly visible in URLs or history. Relatively more secure, but needs HTTPS for true security.",
+                "non_idempotency": "POST requests not idempotent (same request multiple times may create multiple resources).",
+                "caching": "Responses not cached.",
+                "bookmarking_history": "POST cannot be bookmarked; body is not part of the URL.",
+                "length_restrictions": "No inherent restrictions on amount of data (servers have practical limits).",
+                "data_types": "Can send any type of data, including binary (file uploads)."
+            },
+            "Primary Image": "Bank"
+        }
+    ]
+}
