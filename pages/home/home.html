@@ -1,22 +1,31 @@
-<!-- generate a base for an html file -->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CloudDomain</title>
-    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="../../global.css" />
+    <link rel="stylesheet" href="home.css" />
     <script src="home.js" defer></script>
-</head>
-<body>
-    <header>
-        <h1>Welcome to the CloudDomain</h1>
-    </header>
-    <main>
-        <p>This is the main content of the CloudDomain home page.</p>
+  </head>
+  <body id="home-container">
+    <main id="home-contents">
+      <div id="main-title">
+        <h1>CloudDomain</h1>
+      </div>
+      <!-- import the CloudDomain-Logo svg from root/resources -->
+      <section id="logo">
+        <img
+          src="../../resources/CloudDomain-Logo.svg"
+          alt="CloudDomain Logo"
+        />
+      </section>
+      <section id="welcome-message">
+        <h2>Click Anywhere to Continue</h2>
+      </section>
     </main>
-    <footer>
-        <p>&copy; 2024 CloudDomain. All rights reserved.</p>
-    </footer>
-</body>
+    <!-- <footer id="home-footer">
+      <p id="copyright">&copy; 2024 CloudDomain. All rights reserved.</p>
+    </footer> -->
+  </body>
 </html>
